@@ -21,6 +21,7 @@ class githubNameViewController: UIViewController{
         addSubview()
         setLayout()
         configureUI()
+        
     }
     //MARK: -Helpers
     func addSubview(){
