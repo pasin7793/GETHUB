@@ -34,7 +34,7 @@ class githubNameViewController: UIViewController{
         }
     }
     func configureUI(){
-        view.backgroundColor = .orange
+        view.backgroundColor = .white
     }
     //MARK: -Actions
 }
