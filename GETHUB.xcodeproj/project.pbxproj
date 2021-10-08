@@ -17,6 +17,7 @@
 		C8BF41E6270DBD6400F20DB2 /* GETHUBUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BF41E5270DBD6400F20DB2 /* GETHUBUITests.swift */; };
 		C8BF41E8270DBD6400F20DB2 /* GETHUBUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BF41E7270DBD6400F20DB2 /* GETHUBUITestsLaunchTests.swift */; };
 		C8BF41F9270EE0EA00F20DB2 /* githubNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BF41F8270EE0EA00F20DB2 /* githubNameViewController.swift */; };
+		C8BF41FD270FEC3900F20DB2 /* showAPIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BF41FC270FEC3900F20DB2 /* showAPIViewController.swift */; };
 		CA6174C46C4BD4ADDB383B25 /* Pods_GETHUBTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64DCD15F79F296741DA64D0F /* Pods_GETHUBTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 		C8BF41E5270DBD6400F20DB2 /* GETHUBUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GETHUBUITests.swift; sourceTree = "<group>"; };
 		C8BF41E7270DBD6400F20DB2 /* GETHUBUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GETHUBUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		C8BF41F8270EE0EA00F20DB2 /* githubNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = githubNameViewController.swift; sourceTree = "<group>"; };
+		C8BF41FC270FEC3900F20DB2 /* showAPIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showAPIViewController.swift; sourceTree = "<group>"; };
 		DC26C9E784C1435FABEC4F30 /* Pods_GETHUB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GETHUB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0881A4ECEC97E4003B400D8 /* Pods-GETHUB-GETHUBUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GETHUB-GETHUBUITests.debug.xcconfig"; path = "Target Support Files/Pods-GETHUB-GETHUBUITests/Pods-GETHUB-GETHUBUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F64D265917E26F4C062C1C6E /* Pods_GETHUB_GETHUBUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GETHUB_GETHUBUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				C8BF41F8270EE0EA00F20DB2 /* githubNameViewController.swift */,
+				C8BF41FC270FEC3900F20DB2 /* showAPIViewController.swift */,
 			);
 			name = viewController;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8BF41FD270FEC3900F20DB2 /* showAPIViewController.swift in Sources */,
 				C8BF41F9270EE0EA00F20DB2 /* githubNameViewController.swift in Sources */,
 				C8BF41C5270DBD6100F20DB2 /* AppDelegate.swift in Sources */,
 				C8BF41C7270DBD6100F20DB2 /* SceneDelegate.swift in Sources */,
