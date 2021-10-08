@@ -25,9 +25,18 @@ class githubNameViewController: UIViewController{
         $0.layer.cornerRadius = 10
         $0.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
         $0.layer.masksToBounds = true
-        $0.clearButtonMode = .whileEditing
+        //$0.clearButtonMode = .whileEditing
         $0.backgroundColor = UIColor(red: 0.8784, green: 0.8784, blue: 0.8784, alpha: 1.0)
-        $0.setLeftPaddingPoints(30)
+        $0.setLeftPaddingPoints(20)
+        $0.setRightPaddingPoints(20)
+    }
+    private let okBtn = UIButton().then{
+        $0.setTitle("검색", for: .normal)
+        $0.setTitleColor(.white, for: .normal)
+        $0.backgroundColor = .black
+        $0.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
+        $0.layer.cornerRadius = 10
+        $0.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
     }
     //MARK: -Lifecycle
     override func viewDidLoad() {
@@ -41,6 +50,7 @@ class githubNameViewController: UIViewController{
     func addSubview(){
         view.addSubview(githubLogo)
         view.addSubview(userName)
+        view.addSubview(okBtn)
     }
     func setLayout(){
         githubLogo.snp.makeConstraints { make in
@@ -49,17 +59,26 @@ class githubNameViewController: UIViewController{
             make.width.height.equalTo(100)
         }
         userName.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
+            //make.centerX.equalToSuperview()
+            make.left.equalTo(bounds.width*0.1)
             make.top.equalTo(githubLogo.snp.bottom).offset(bounds.height*0.09)
             make.width.equalTo(bounds.width*0.63)
             make.height.equalTo(bounds.height*0.051)
+        }
+        okBtn.snp.makeConstraints { make in
+            make.left.equalTo(userName.snp.right).offset(bounds.width*0.01)
+            make.top.equalTo(userName)
+            make.height.equalTo(userName)
+            make.width.equalTo(bounds.width*0.16)
         }
     }
     func configureUI(){
         view.backgroundColor = .white
     }
     //MARK: -Actions
-    
+    @objc func buttonTapped(_ button: UIButton){
+        print("button Tapped")
+    }
 }
 extension UITextField {
     func setLeftPaddingPoints(_ amount:CGFloat){
