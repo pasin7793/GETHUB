@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import Then
+import OctoKit
 
 class githubNameViewController: UIViewController{
     //MARK: -Properties

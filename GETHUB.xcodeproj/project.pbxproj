@@ -18,6 +18,7 @@
 		C8BF41E8270DBD6400F20DB2 /* GETHUBUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BF41E7270DBD6400F20DB2 /* GETHUBUITestsLaunchTests.swift */; };
 		C8BF41F9270EE0EA00F20DB2 /* githubNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BF41F8270EE0EA00F20DB2 /* githubNameViewController.swift */; };
 		C8BF41FD270FEC3900F20DB2 /* showAPIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BF41FC270FEC3900F20DB2 /* showAPIViewController.swift */; };
+		C8BF42002715CB7300F20DB2 /* OctoKit in Frameworks */ = {isa = PBXBuildFile; productRef = C8BF41FF2715CB7300F20DB2 /* OctoKit */; };
 		CA6174C46C4BD4ADDB383B25 /* Pods_GETHUBTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64DCD15F79F296741DA64D0F /* Pods_GETHUBTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8BF42002715CB7300F20DB2 /* OctoKit in Frameworks */,
 				5B30D12E71F29EEA53ED546D /* Pods_GETHUB.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -201,6 +203,9 @@
 			dependencies = (
 			);
 			name = GETHUB;
+			packageProductDependencies = (
+				C8BF41FF2715CB7300F20DB2 /* OctoKit */,
+			);
 			productName = GETHUB;
 			productReference = C8BF41C1270DBD6100F20DB2 /* GETHUB.app */;
 			productType = "com.apple.product-type.application";
@@ -276,6 +281,9 @@
 				Base,
 			);
 			mainGroup = C8BF41B8270DBD6100F20DB2;
+			packageReferences = (
+				C8BF41FE2715CB7300F20DB2 /* XCRemoteSwiftPackageReference "octokit" */,
+			);
 			productRefGroup = C8BF41C2270DBD6100F20DB2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -784,6 +792,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C8BF41FE2715CB7300F20DB2 /* XCRemoteSwiftPackageReference "octokit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nerdishbynature/octokit.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C8BF41FF2715CB7300F20DB2 /* OctoKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C8BF41FE2715CB7300F20DB2 /* XCRemoteSwiftPackageReference "octokit" */;
+			productName = OctoKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C8BF41B9270DBD6100F20DB2 /* Project object */;
 }
