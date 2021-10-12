@@ -6,6 +6,7 @@ target 'GETHUB' do
   use_frameworks!
 pod 'Then'
 pod 'SnapKit'
+pod 'Kingfisher'
 
   # Pods for GETHUB
 

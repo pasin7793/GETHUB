@@ -12,6 +12,7 @@ import OctoKit
 
 class githubNameViewController: UIViewController{
     //MARK: -Properties
+
     let bounds = UIScreen.main.bounds
     let githubLogo = UIImageView(image: UIImage(named: "github logo")) .then{
         $0.backgroundColor = .white
@@ -79,6 +80,9 @@ class githubNameViewController: UIViewController{
     //MARK: -Actions
     @objc func buttonTapped(_ button: UIButton){
         print("button Tapped")
+        let showAPI = showAPIViewController()
+        showAPI.username = userName.text!
+        self.present(showAPI, animated: true, completion: nil)
     }
 }
 extension UITextField {
