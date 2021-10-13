@@ -82,6 +82,7 @@ class githubNameViewController: UIViewController{
         print("button Tapped")
         let showAPI = showAPIViewController()
         showAPI.username = userName.text!
+        showAPI.modalPresentationStyle = .fullScreen
         self.present(showAPI, animated: true, completion: nil)
     }
 }

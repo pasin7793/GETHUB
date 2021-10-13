@@ -27,7 +27,7 @@ class showAPIViewController: UIViewController{
         $0.layer.borderColor = UIColor.gray.cgColor
     }
     private let nameLabel = UILabel().then {
-        $0.font = UIFont(name: "helvetica", size: 30)
+        $0.font = UIFont(name: "Helvetica", size: 30)
         $0.textColor = .black
     }
     override func viewDidLoad() {
@@ -75,7 +75,7 @@ class showAPIViewController: UIViewController{
     func setLayout(){
         profileImageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(bounds.height*0.05)
+            make.top.equalTo(bounds.height*0.3)
             make.width.height.equalTo(100)
         }
         nameLabel.snp.makeConstraints { make in
