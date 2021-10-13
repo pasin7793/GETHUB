@@ -23,8 +23,11 @@ class showAPIViewController: UIViewController{
     private let profileImageView = UIImageView().then {
         $0.clipsToBounds = true
         $0.frame = CGRect(x: 0, y: 0, width: 78, height: 78)
-        $0.layer.borderWidth = 1
+        //$0.layer.borderWidth = 1
         $0.layer.borderColor = UIColor.gray.cgColor
+        $0.layer.cornerRadius = $0.frame.width/0.8
+        $0.clipsToBounds = true
+        $0.layer.masksToBounds = true
     }
     private let nameLabel = UILabel().then {
         
@@ -84,8 +87,8 @@ class showAPIViewController: UIViewController{
         }
         nameLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(profileImageView.snp.bottom).offset(bounds.height*0.04)
-            make.height.equalTo(30)
+            make.top.equalTo(profileImageView.snp.bottom).offset(bounds.height*0.01)
+            make.height.equalTo(bounds.height*0.3)
         }
     }
 }
