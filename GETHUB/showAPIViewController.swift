@@ -27,6 +27,7 @@ class showAPIViewController: UIViewController{
         $0.layer.borderColor = UIColor.gray.cgColor
     }
     private let nameLabel = UILabel().then {
+        
         $0.font = UIFont(name: "Helvetica", size: 30)
         $0.textColor = .black
     }
@@ -44,6 +45,8 @@ class showAPIViewController: UIViewController{
                     DispatchQueue.main.async {
                         self.addsubView()
                         self.configureUI()
+                        self.setLayout()
+                        
                     }
                     
                 case .failure(let err):
@@ -71,12 +74,13 @@ class showAPIViewController: UIViewController{
             return
         }
         profileImageView.kf.setImage(with: URL(string: user.avatarURL!), placeholder: nil, options: nil, completionHandler: nil)
+        nameLabel.text = user.name
     }
     func setLayout(){
         profileImageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(bounds.height*0.3)
-            make.width.height.equalTo(100)
+            make.top.equalTo(bounds.height*0.17)
+            make.width.height.equalTo(200)
         }
         nameLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
