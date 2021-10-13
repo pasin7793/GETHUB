@@ -10,13 +10,19 @@ import SnapKit
 import Then
 import OctoKit
 import Kingfisher
+import SwiftUI
 
 class showAPIViewController: UIViewController{
     //MARK: -Properies
+    let noUser = UIImageView().then{
+        $0.tintColor = UIColor.black
+        $0.image = UIImage(systemName: "person.crop.circle.badge.exclamationmark")
+    }
     private let bounds = UIScreen.main.bounds
     let notFoundMessage = UILabel().then {
         $0.text = "유저를 찾을 수 없습니다!"
-        $0.font = UIFont(name: "Helvetica", size: 30)
+        $0.font = UIFont(name: "Helvetica", size: 18)
+        $0.textColor = UIColor.gray
     }
     var username: String?
     var user: (User)?
@@ -62,6 +68,14 @@ class showAPIViewController: UIViewController{
             }
         }
     func notFoundUser(){
+        view.addSubview(noUser)
+        noUser.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(bounds.height*0.23)
+            make.width.equalTo(bounds.width*0.37)
+            make.height.equalTo(bounds.height*0.15)
+        }
+        view.addSubview(notFoundMessage)
             notFoundMessage.snp.makeConstraints {
                 $0.center.equalToSuperview()
             }
@@ -69,7 +83,6 @@ class showAPIViewController: UIViewController{
     func addsubView(){
         view.addSubview(profileImageView)
         view.addSubview(nameLabel)
-        view.addSubview(notFoundMessage)
     }
     func configureUI(){
         view.backgroundColor = .white
@@ -87,7 +100,7 @@ class showAPIViewController: UIViewController{
         }
         nameLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(profileImageView.snp.bottom).offset(bounds.height*0.01)
+            make.top.equalTo(bounds.height*0.3)
             make.height.equalTo(bounds.height*0.3)
         }
     }
