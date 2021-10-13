@@ -15,7 +15,7 @@ class showAPIViewController: UIViewController{
     //MARK: -Properies
     let outBtn = UIButton().then{
         $0.setTitle("뒤로가기", for: .normal)
-        $0.setTitleColor(UIColor.gray, for: .normal)
+        $0.setTitleColor(UIColor.black, for: .normal)
         $0.addTarget(self, action: #selector(dissmissBtn(_:)), for: .touchUpInside)
     }
     let noUser = UIImageView().then{
@@ -71,6 +71,11 @@ class showAPIViewController: UIViewController{
             }
         }
     func notFoundUser(){
+        view.addSubview(outBtn)
+        outBtn.snp.makeConstraints { make in
+            make.top.equalTo(bounds.height*0.08)
+            make.left.equalTo(bounds.width*0.08)
+        }
         view.addSubview(noUser)
         noUser.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
@@ -108,7 +113,7 @@ class showAPIViewController: UIViewController{
             make.height.equalTo(bounds.height*0.3)
         }
         outBtn.snp.makeConstraints { make in
-            make.top.equalTo(bounds.height*0.05)
+            make.top.equalTo(bounds.height*0.08)
             make.left.equalTo(bounds.width*0.08)
         }
     }
