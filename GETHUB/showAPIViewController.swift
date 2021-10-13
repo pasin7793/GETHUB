@@ -66,7 +66,6 @@ class showAPIViewController: UIViewController{
                     DispatchQueue.main.async {
                         self.notFoundUser()
                     }
-                   
                 }
             }
         }
