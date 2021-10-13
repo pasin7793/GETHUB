@@ -13,6 +13,11 @@ import Kingfisher
 
 class showAPIViewController: UIViewController{
     //MARK: -Properies
+    let outBtn = UIButton().then{
+        $0.setTitle("뒤로가기", for: .normal)
+        $0.setTitleColor(UIColor.gray, for: .normal)
+        $0.addTarget(self, action: #selector(dissmissBtn(_:)), for: .touchUpInside)
+    }
     let noUser = UIImageView().then{
         $0.tintColor = UIColor.black
         $0.image = UIImage(systemName: "person.crop.circle.badge.exclamationmark")
@@ -81,6 +86,7 @@ class showAPIViewController: UIViewController{
     func addsubView(){
         view.addSubview(profileImageView)
         view.addSubview(nameLabel)
+        view.addSubview(outBtn)
     }
     func configureUI(){
         view.backgroundColor = .white
@@ -101,5 +107,13 @@ class showAPIViewController: UIViewController{
             make.top.equalTo(bounds.height*0.3)
             make.height.equalTo(bounds.height*0.3)
         }
+        outBtn.snp.makeConstraints { make in
+            make.top.equalTo(bounds.height*0.05)
+            make.left.equalTo(bounds.width*0.08)
+        }
+    }
+    @objc func dissmissBtn(_ button: UIButton){
+        print("dismiss button Tapped")
+        self.dismiss(animated: true, completion: nil)
     }
 }
