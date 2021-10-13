@@ -10,7 +10,6 @@ import SnapKit
 import Then
 import OctoKit
 import Kingfisher
-import SwiftUI
 
 class showAPIViewController: UIViewController{
     //MARK: -Properies
@@ -55,7 +54,6 @@ class showAPIViewController: UIViewController{
                         self.addsubView()
                         self.configureUI()
                         self.setLayout()
-                        
                     }
                     
                 case .failure(let err):
