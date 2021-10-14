@@ -13,16 +13,17 @@ import Kingfisher
 
 class showAPIViewController: UIViewController{
     //MARK: -Properies
-    let outBtn = UIButton().then{
+    private let outBtn = UIButton().then{
         $0.setTitle("뒤로가기", for: .normal)
         $0.setTitleColor(UIColor.black, for: .normal)
         $0.addTarget(self, action: #selector(dissmissBtn(_:)), for: .touchUpInside)
     }
-    let noUser = UIImageView().then{
+    private let noUser = UIImageView().then{
         $0.tintColor = UIColor.black
         $0.image = UIImage(systemName: "person.crop.circle.badge.exclamationmark")
     }
     private let bounds = UIScreen.main.bounds
+    
     let notFoundMessage = UILabel().then {
         $0.text = "유저를 찾을 수 없습니다!"
         $0.font = UIFont(name: "Helvetica", size: 18)
@@ -40,7 +41,10 @@ class showAPIViewController: UIViewController{
         $0.layer.masksToBounds = true
     }
     private let nameLabel = UILabel().then {
-        
+        $0.font = UIFont(name: "Helvetica", size: 30)
+        $0.textColor = .black
+    }
+    private let followerLabel = UILabel().then{
         $0.font = UIFont(name: "Helvetica", size: 30)
         $0.textColor = .black
     }
@@ -51,24 +55,25 @@ class showAPIViewController: UIViewController{
         
     }
     func findUser(){
-            Octokit().user(name: username!.replacingOccurrences(of: " ", with: "")) { response in
-                switch response{
-                case .success(let user):
-                    self.user = user
-                    DispatchQueue.main.async {
-                        self.addsubView()
-                        self.configureUI()
-                        self.setLayout()
-                    }
-                    
-                case .failure(let err):
-                    print(err.localizedDescription)
-                    DispatchQueue.main.async {
-                        self.notFoundUser()
-                    }
+        Octokit().user(name: username!.replacingOccurrences(of: " ", with: "")) { response in
+            switch response{
+            case .success(let user):
+                self.user = user
+                DispatchQueue.main.async {
+                    self.addsubView()
+                    self.configureUI()
+                    self.setLayout()
+                }
+                
+            case .failure(let err):
+                print(err.localizedDescription)
+                DispatchQueue.main.async {
+                    self.notFoundUser()
                 }
             }
         }
+        Octokit().user(name: <#T##String#>, completion: <#T##(Response<User>) -> Void##(Response<User>) -> Void##(_ response: Response<User>) -> Void#>)
+    }
     func notFoundUser(){
         view.addSubview(outBtn)
         outBtn.snp.makeConstraints { make in
