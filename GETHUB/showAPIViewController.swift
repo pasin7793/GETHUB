@@ -45,7 +45,11 @@ class showAPIViewController: UIViewController{
         $0.textColor = .black
     }
     private let followerLabel = UILabel().then{
-        $0.font = UIFont(name: "Helvetica", size: 30)
+        $0.font = UIFont(name: "Helvetica", size: 27)
+        $0.textColor = .black
+    }
+    private let followingLabel = UILabel().then{
+        $0.font = UIFont(name: "Helvetica", size: 27)
         $0.textColor = .black
     }
     override func viewDidLoad() {
@@ -72,7 +76,7 @@ class showAPIViewController: UIViewController{
                 }
             }
         }
-        Octokit().user(name: <#T##String#>, completion: <#T##(Response<User>) -> Void##(Response<User>) -> Void##(_ response: Response<User>) -> Void#>)
+        
     }
     func notFoundUser(){
         view.addSubview(outBtn)
@@ -96,6 +100,8 @@ class showAPIViewController: UIViewController{
         view.addSubview(profileImageView)
         view.addSubview(nameLabel)
         view.addSubview(outBtn)
+        view.addSubview(followerLabel)
+        view.addSubview(followingLabel)
     }
     func configureUI(){
         view.backgroundColor = .white
@@ -104,6 +110,9 @@ class showAPIViewController: UIViewController{
         }
         profileImageView.kf.setImage(with: URL(string: user.avatarURL!), placeholder: nil, options: nil, completionHandler: nil)
         nameLabel.text = user.name
+        
+        followerLabel.text = "\(user.numberOfFollowers ?? 0)"
+        followingLabel.text = "\(user.numberOfFollowing ?? 0)"
     }
     func setLayout(){
         profileImageView.snp.makeConstraints { make in
@@ -119,6 +128,10 @@ class showAPIViewController: UIViewController{
         outBtn.snp.makeConstraints { make in
             make.top.equalTo(bounds.height*0.08)
             make.left.equalTo(bounds.width*0.08)
+        }
+        followerLabel.snp.makeConstraints { make in
+            make.top.equalTo(bounds.height*0.73)
+            make.left.equalTo(bounds.width*0.15)
         }
     }
     @objc func dissmissBtn(_ button: UIButton){
