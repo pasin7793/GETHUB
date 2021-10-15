@@ -44,11 +44,11 @@ class showAPIViewController: UIViewController{
         $0.font = UIFont(name: "Helvetica", size: 30)
         $0.textColor = .black
     }
-    private let followerLabel = UILabel().then{
+    private let follower = UILabel().then{
         $0.font = UIFont(name: "Helvetica", size: 27)
         $0.textColor = .black
     }
-    private let followingLabel = UILabel().then{
+    private let following = UILabel().then{
         $0.font = UIFont(name: "Helvetica", size: 27)
         $0.textColor = .black
     }
@@ -100,8 +100,8 @@ class showAPIViewController: UIViewController{
         view.addSubview(profileImageView)
         view.addSubview(nameLabel)
         view.addSubview(outBtn)
-        view.addSubview(followerLabel)
-        view.addSubview(followingLabel)
+        view.addSubview(follower)
+        view.addSubview(following)
     }
     func configureUI(){
         view.backgroundColor = .white
@@ -111,8 +111,8 @@ class showAPIViewController: UIViewController{
         profileImageView.kf.setImage(with: URL(string: user.avatarURL!), placeholder: nil, options: nil, completionHandler: nil)
         nameLabel.text = user.name
         
-        followerLabel.text = "\(user.numberOfFollowers ?? 0)"
-        followingLabel.text = "\(user.numberOfFollowing ?? 0)"
+        follower.text = "\(user.numberOfFollowers ?? 0)"
+        following.text = "\(user.numberOfFollowing ?? 0)"
     }
     func setLayout(){
         profileImageView.snp.makeConstraints { make in
@@ -129,9 +129,13 @@ class showAPIViewController: UIViewController{
             make.top.equalTo(bounds.height*0.08)
             make.left.equalTo(bounds.width*0.08)
         }
-        followerLabel.snp.makeConstraints { make in
-            make.top.equalTo(bounds.height*0.73)
+        follower.snp.makeConstraints { make in
+            make.top.equalTo(bounds.height*0.62)
             make.left.equalTo(bounds.width*0.15)
+        }
+        following.snp.makeConstraints { make in
+            make.top.equalTo(follower)
+            make.right.equalToSuperview().inset(bounds.width*0.15)
         }
     }
     @objc func dissmissBtn(_ button: UIButton){
