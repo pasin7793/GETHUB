@@ -39,6 +39,8 @@ class showAPIViewController: UIViewController{
         $0.layer.cornerRadius = $0.frame.width/0.8
         $0.clipsToBounds = true
         $0.layer.masksToBounds = true
+        $0.isUserInteractionEnabled = true
+        $0.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(imageTapped(_:))))
     }
     private let nameLabel = UILabel().then {
         $0.font = UIFont(name: "Helvetica", size: 30)
@@ -62,6 +64,7 @@ class showAPIViewController: UIViewController{
         $0.textColor = .gray
         $0.font = UIFont(name: "Helvetica", size: 22)
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -161,5 +164,8 @@ class showAPIViewController: UIViewController{
     @objc func dissmissBtn(_ button: UIButton){
         print("dismiss button Tapped")
         self.dismiss(animated: true, completion: nil)
+    }
+    @objc func imageTapped(_ sender: UITapGestureRecognizer){
+        print("image Tapped")
     }
 }
