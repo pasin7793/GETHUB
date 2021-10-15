@@ -52,6 +52,16 @@ class showAPIViewController: UIViewController{
         $0.font = UIFont(name: "Helvetica", size: 27)
         $0.textColor = .black
     }
+    private let followingLabel = UILabel().then{
+        $0.text = "팔로잉"
+        $0.textColor = .gray
+        $0.font = UIFont(name: "Helvetica", size: 22)
+    }
+    private let followerLabel = UILabel().then{
+        $0.text = "팔로워"
+        $0.textColor = .gray
+        $0.font = UIFont(name: "Helvetica", size: 22)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -102,6 +112,8 @@ class showAPIViewController: UIViewController{
         view.addSubview(outBtn)
         view.addSubview(follower)
         view.addSubview(following)
+        view.addSubview(followerLabel)
+        view.addSubview(followingLabel)
     }
     func configureUI(){
         view.backgroundColor = .white
@@ -129,13 +141,21 @@ class showAPIViewController: UIViewController{
             make.top.equalTo(bounds.height*0.08)
             make.left.equalTo(bounds.width*0.08)
         }
-        follower.snp.makeConstraints { make in
-            make.top.equalTo(bounds.height*0.62)
+        followerLabel.snp.makeConstraints { make in
+            make.top.equalTo(bounds.height*0.52)
             make.left.equalTo(bounds.width*0.15)
+        }
+        followingLabel.snp.makeConstraints { make in
+            make.top.equalTo(followerLabel)
+            make.right.equalToSuperview().inset(bounds.width*0.15)
+        }
+        follower.snp.makeConstraints { make in
+            make.top.equalTo(followerLabel.snp.bottom).offset(bounds.height*0.03)
+            make.left.equalTo(bounds.width*0.18)
         }
         following.snp.makeConstraints { make in
             make.top.equalTo(follower)
-            make.right.equalToSuperview().inset(bounds.width*0.15)
+            make.right.equalToSuperview().inset(bounds.width*0.18)
         }
     }
     @objc func dissmissBtn(_ button: UIButton){
