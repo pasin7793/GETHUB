@@ -17,7 +17,7 @@ class showAPIViewController: UIViewController{
     private let outBtn = UIButton().then{
         $0.setTitle("뒤로가기", for: .normal)
         $0.setTitleColor(UIColor.black, for: .normal)
-        $0.addTarget(self, action: #selector(dissmissBtn(_:)), for: .touchUpInside)
+        $0.addTarget(self, action: #selector(presentBtn(_:)), for: .touchUpInside)
     }
     private let noUser = UIImageView().then{
         $0.tintColor = UIColor.black
@@ -162,7 +162,7 @@ class showAPIViewController: UIViewController{
             make.right.equalToSuperview().inset(bounds.width*0.18)
         }
     }
-    @objc func dissmissBtn(_ button: UIButton){
+    @objc func presentBtn(_ button: UIButton){
         print("dismiss button Tapped")
         githubVC.modalPresentationStyle = .fullScreen
         present(githubVC, animated: true, completion: nil)
