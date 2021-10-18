@@ -10,6 +10,7 @@ import SnapKit
 import Then
 import OctoKit
 import Kingfisher
+import SwiftUI
 
 class showAPIViewController: UIViewController{
     //MARK: -Properies
@@ -30,6 +31,7 @@ class showAPIViewController: UIViewController{
         $0.font = UIFont(name: "Helvetica", size: 18)
         $0.textColor = UIColor.gray
     }
+
     var username: String?
     var user: (User)?
     private let profileImageView = UIImageView().then {
@@ -40,8 +42,6 @@ class showAPIViewController: UIViewController{
         $0.layer.cornerRadius = $0.frame.width/0.8
         $0.clipsToBounds = true
         $0.layer.masksToBounds = true
-        $0.isUserInteractionEnabled = true
-        $0.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(imageTapped(_:))))
     }
     private let nameLabel = UILabel().then {
         $0.font = UIFont(name: "Helvetica", size: 30)
@@ -71,6 +71,11 @@ class showAPIViewController: UIViewController{
         view.backgroundColor = .white
         findUser()
         
+        let tap = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+        
+        profileImageView.isUserInteractionEnabled = true
+        profileImageView.addGestureRecognizer(tap)
+           
     }
     func findUser(){
         Octokit().user(name: username!.replacingOccurrences(of: " ", with: "")) { response in
@@ -167,7 +172,7 @@ class showAPIViewController: UIViewController{
         githubVC.modalPresentationStyle = .fullScreen
         present(githubVC, animated: true, completion: nil)
     }
-    @objc func imageTapped(_ sender: UITapGestureRecognizer){
+    @objc func imageTapped(){
         print("image Tapped")
     }
 }

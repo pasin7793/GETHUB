@@ -84,12 +84,13 @@ class githubNameViewController: UIViewController{
         showAPI.username = userName.text!
         showAPI.modalPresentationStyle = .fullScreen
         self.present(showAPI, animated: true, completion: nil)
-        /*if(userName.text == ""){
+        if(userName.text == ""){
             let alert = UIAlertController(title: "오류", message: "아이디를 입력해주세요.", preferredStyle: UIAlertController.Style.alert)
             let defaultAction = UIAlertAction(title: "확인", style: .destructive, handler : nil)
             alert.addAction(defaultAction)
             self.present(alert, animated: false, completion: nil)
-        }*/
+           
+        }
     }
 }
 extension UITextField {
