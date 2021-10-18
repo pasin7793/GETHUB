@@ -13,6 +13,7 @@ import Kingfisher
 
 class showAPIViewController: UIViewController{
     //MARK: -Properies
+    let githubVC = githubNameViewController()
     private let outBtn = UIButton().then{
         $0.setTitle("뒤로가기", for: .normal)
         $0.setTitleColor(UIColor.black, for: .normal)
@@ -163,7 +164,8 @@ class showAPIViewController: UIViewController{
     }
     @objc func dissmissBtn(_ button: UIButton){
         print("dismiss button Tapped")
-        self.dismiss(animated: true, completion: nil)
+        githubVC.modalPresentationStyle = .fullScreen
+        present(githubVC, animated: true, completion: nil)
     }
     @objc func imageTapped(_ sender: UITapGestureRecognizer){
         print("image Tapped")
