@@ -70,12 +70,9 @@ class showAPIViewController: UIViewController{
         super.viewDidLoad()
         view.backgroundColor = .white
         findUser()
-        
         let tap = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
-        
         profileImageView.isUserInteractionEnabled = true
         profileImageView.addGestureRecognizer(tap)
-           
     }
     func findUser(){
         Octokit().user(name: username!.replacingOccurrences(of: " ", with: "")) { response in
@@ -168,7 +165,7 @@ class showAPIViewController: UIViewController{
         }
     }
     @objc func presentBtn(_ button: UIButton){
-        print("dismiss button Tapped")
+        print("present button Tapped")
         githubVC.modalPresentationStyle = .fullScreen
         present(githubVC, animated: true, completion: nil)
     }
