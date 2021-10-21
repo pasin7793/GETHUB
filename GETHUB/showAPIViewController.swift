@@ -171,5 +171,6 @@ class showAPIViewController: UIViewController{
     }
     @objc func imageTapped(){
         print("image Tapped")
+        if let appUrl = URL(string: "https://github.com/") { if UIApplication.shared.canOpenURL(appUrl) { UIApplication.shared.openURL(appUrl) } }
     }
 }
