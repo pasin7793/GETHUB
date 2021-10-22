@@ -31,7 +31,6 @@ class showAPIViewController: UIViewController{
         $0.font = UIFont(name: "Helvetica", size: 18)
         $0.textColor = UIColor.gray
     }
-
     var username: String?
     var user: (User)?
     private let profileImageView = UIImageView().then {
@@ -92,7 +91,6 @@ class showAPIViewController: UIViewController{
                 }
             }
         }
-        
     }
     func notFoundUser(){
         view.addSubview(outBtn)
