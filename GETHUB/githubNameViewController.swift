@@ -74,21 +74,28 @@ class githubNameViewController: UIViewController{
             make.width.equalTo(bounds.width*0.16)
         }
     }
+    func alert(){
+        let alert = UIAlertController(title: "오류", message: "아이디를 입력해주세요.", preferredStyle: UIAlertController.Style.alert)
+        let defaultAction = UIAlertAction(title: "확인", style: .destructive, handler : nil)
+        alert.addAction(defaultAction)
+    }
+    func nextView(){
+        let showAPI = showAPIViewController()
+        showAPI.username = userName.text!
+        showAPI.modalPresentationStyle = .fullScreen
+        self.present(showAPI, animated: true, completion: nil)
+    }
     func configureUI(){
         view.backgroundColor = .white
     }
     //MARK: -Actions
     @objc func buttonTapped(_ button: UIButton){
         print("button Tapped")
-        let showAPI = showAPIViewController()
-        showAPI.username = userName.text!
-        showAPI.modalPresentationStyle = .fullScreen
-        self.present(showAPI, animated: true, completion: nil)
         if(userName.text == ""){
-            let alert = UIAlertController(title: "오류", message: "아이디를 입력해주세요.", preferredStyle: UIAlertController.Style.alert)
-            let defaultAction = UIAlertAction(title: "확인", style: .destructive, handler : nil)
-            alert.addAction(defaultAction)
-            self.present(alert, animated: false, completion: nil)
+            alert()
+        }
+        else {
+            nextView()
         }
         userName.text = ""
     }
