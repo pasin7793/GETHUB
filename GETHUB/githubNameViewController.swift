@@ -78,6 +78,7 @@ class githubNameViewController: UIViewController{
         let alert = UIAlertController(title: "오류", message: "아이디를 입력해주세요.", preferredStyle: UIAlertController.Style.alert)
         let defaultAction = UIAlertAction(title: "확인", style: .destructive, handler : nil)
         alert.addAction(defaultAction)
+        present(alert, animated: false, completion: nil)
     }
     func nextView(){
         let showAPI = showAPIViewController()
