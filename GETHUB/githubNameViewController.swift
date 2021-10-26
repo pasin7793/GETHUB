@@ -17,7 +17,7 @@ class githubNameViewController: UIViewController{
     let githubLogo = UIImageView(image: UIImage(named: "github logo")) .then{
         $0.backgroundColor = .white
     }
-    private let userName = UITextField().then{
+    let userName = UITextField().then{
         $0.backgroundColor = .white
         $0.textColor = .black
         $0.keyboardType = .asciiCapable
@@ -89,8 +89,8 @@ class githubNameViewController: UIViewController{
             let defaultAction = UIAlertAction(title: "확인", style: .destructive, handler : nil)
             alert.addAction(defaultAction)
             self.present(alert, animated: false, completion: nil)
-           
         }
+        userName.text = ""
     }
 }
 extension UITextField {
