@@ -46,7 +46,6 @@ class githubNameViewController: UIViewController{
         addSubview()
         setLayout()
         configureUI()
-        
     }
     //MARK: -Helpers
     func addSubview(){
@@ -92,7 +91,7 @@ class githubNameViewController: UIViewController{
     //MARK: -Actions
     @objc func buttonTapped(_ button: UIButton){
         print("button Tapped")
-        if(userName.text == ""){
+        if(userName.text == "" || userName.text!.contains(" ")){
             alert()
         }
         else {
