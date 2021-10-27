@@ -98,6 +98,7 @@ class githubNameViewController: UIViewController, UITextFieldDelegate{
         else {
             nextView()
         }
+        userName.text = ""
         return true
     }
     
