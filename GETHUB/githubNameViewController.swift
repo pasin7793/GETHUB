@@ -92,7 +92,12 @@ class githubNameViewController: UIViewController, UITextFieldDelegate{
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         print("return tapped")
-        nextView()
+        if (userName.text == "" || userName.text!.contains(" ")){
+            alert()
+        }
+        else {
+            nextView()
+        }
         return true
     }
     
