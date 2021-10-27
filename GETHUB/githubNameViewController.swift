@@ -10,14 +10,13 @@ import SnapKit
 import Then
 import OctoKit
 
-class githubNameViewController: UIViewController{
+class githubNameViewController: UIViewController, UITextFieldDelegate{
     //MARK: -Properties
-
     let bounds = UIScreen.main.bounds
     let githubLogo = UIImageView(image: UIImage(named: "github logo")) .then{
         $0.backgroundColor = .white
     }
-    let userName = UITextField().then{
+    var userName = UITextField().then{
         $0.backgroundColor = .white
         $0.textColor = .black
         $0.keyboardType = .asciiCapable
@@ -43,6 +42,8 @@ class githubNameViewController: UIViewController{
     //MARK: -Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        userName.delegate = self
+        
         addSubview()
         setLayout()
         configureUI()
@@ -88,6 +89,13 @@ class githubNameViewController: UIViewController{
     func configureUI(){
         view.backgroundColor = .white
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print("return tapped")
+        nextView()
+        return true
+    }
+    
     //MARK: -Actions
     @objc func buttonTapped(_ button: UIButton){
         print("button Tapped")
